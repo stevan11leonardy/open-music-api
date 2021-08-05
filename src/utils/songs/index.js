@@ -1,6 +1,6 @@
 const mapDBToModel = ({
   id,
-  created_at,
+  inserted_at,
   updated_at,
   title,
   year,
@@ -9,7 +9,7 @@ const mapDBToModel = ({
   duration,
 }) => ({
   id,
-  insertedAt: created_at,
+  insertedAt: inserted_at,
   updatedAt: updated_at,
   title,
   year: parseInt(year),
