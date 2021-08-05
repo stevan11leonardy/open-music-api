@@ -73,7 +73,7 @@ class SongsHandler {
     };
   }
 
-  async deleteSongByIdHandler(request, h) {
+  async deleteSongByIdHandler(request) {
     const {id} = request.params;
     await this._service.deleteSongById(id);
 
