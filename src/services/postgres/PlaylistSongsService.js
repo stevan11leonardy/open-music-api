@@ -57,7 +57,8 @@ class PlaylistSongsService {
         FROM songs
         LEFT JOIN playlistsongs ON playlistsongs.song_id = songs.id
         LEFT JOIN playlists ON playlists.id = playlistsongs.playlist_id
-        WHERE playlists.owner = $1
+        LEFT JOIN collaborations ON collaborations.playlist_id = playlists.id
+        WHERE playlists.owner = $1 OR collaborations.user_id = $1
         GROUP BY songs.id
       `,
       values: [owner],
