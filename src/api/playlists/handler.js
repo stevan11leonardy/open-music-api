@@ -47,7 +47,7 @@ class PlaylistsHandler {
     await this._playlistSongsService.addPlaylistSong({
       playlistId: id,
       songId,
-    });
+    }, owner);
 
     const response = h.response({
       status: 'success',
@@ -110,7 +110,10 @@ class PlaylistsHandler {
           songId,
         });
 
-    await this._playlistSongsService.deletePlaylistSongsById(playlistSongId);
+    await this._playlistSongsService.deletePlaylistSongsById(
+        playlistSongId,
+        owner,
+    );
 
     return {
       status: 'success',
