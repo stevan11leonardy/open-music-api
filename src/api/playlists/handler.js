@@ -74,7 +74,7 @@ class PlaylistsHandler {
     const {id: owner} = request.auth.credentials;
 
     await this._service.verifyPlaylistAccess(id, owner);
-    const songs = await this._playlistSongsService.getPlaylistSongs(owner);
+    const songs = await this._playlistSongsService.getPlaylistSongs(id, owner);
 
     return {
       status: 'success',
